@@ -22,11 +22,40 @@ h1{
     background-color: cyan;
 }
 
-.black{
-    background-color: black;
-}
-
 button{
     height: 50px;
     width: 50px;
+    margin: 5px;
+}
+
+.cherry-red{
+    background-color: #D72638;
+}
+
+.cream-white{
+    background-color: #F4EBD0;
+}
+
+.sky-blue{
+    background-color: #4EA5D9;
+}
+
+.mustard-yellow{
+    background-color: #F2C14E;
+}
+
+.mint-green{
+    background-color: #6DD3A0;
+}
+
+.deep-navy{
+    background-color: #1B263B;
+}
+
+.soft-orange{
+    background-color: #F28F3B;
+}
+
+.lavender-purple{
+    background-color: #9D79BC;
 }
