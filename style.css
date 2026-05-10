@@ -19,13 +19,20 @@ h1{
 .drawDiv{
     width: 40px;
     height: 40px;
-    background-color: cyan;
+    background-color: grey;
 }
 
 button{
     height: 50px;
     width: 50px;
     margin: 5px;
+    border: solid 3px black;
+}
+
+button:hover{
+    cursor: pointer;
+    border: solid white;
+    transition: 0.3s;
 }
 
 .cherry-red{
