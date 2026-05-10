@@ -26,4 +26,3 @@ drawDivs.forEach(drawDiv => {
     });
 });
 
-
