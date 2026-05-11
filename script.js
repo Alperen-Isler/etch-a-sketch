@@ -10,7 +10,11 @@ const lavenderPurple = document.querySelector(".lavender-purple");
 const changeGrid = document.querySelector("#changeGrid");
 
 let gridSize = 16;
+let oldGridSize;
 let color;
+let drawDivs;
+let allowDraw;
+
 const colors = [
     "cherry-red",
     "cream-white",
@@ -73,40 +77,33 @@ function createDivs (){
             divContainer.appendChild(div);
         }        
     }
+    drawDivs = document.querySelectorAll(".drawDiv");
+    allowDraw = false;
 }
 
-createDivs();
+function addDrawEvents() {
+    drawDivs.forEach(drawDiv => {
 
-let drawDivs = document.querySelectorAll(".drawDiv");
-let allowDraw = false;
-
-drawDivs.forEach(drawDiv => {
-    drawDiv.addEventListener("click", function(e){
-        if (allowDraw === false){
-            allowDraw = true;
+        drawDiv.addEventListener("click", function () {
+            allowDraw = !allowDraw;
             console.log(allowDraw);
-        } else if (allowDraw === true){
-            allowDraw = false;
-            console.log(allowDraw);
-        }
-    });
-});
+        });
 
-drawDivs.forEach(drawDiv => {
-    drawDiv.addEventListener("click", function(e){
-    });
-        drawDiv.addEventListener("mouseover", function(e){
-            if(allowDraw === true){
+        drawDiv.addEventListener("mouseover", function () {
+            if (allowDraw === true) {
                 drawDiv.classList.remove(...colors);
                 drawDiv.classList.add(color);
             }
         });
-    
-});
+
+    });
+}
+
+createDivs();
 
 function removeGrid(){
     const div = document.querySelectorAll(".drawDiv");
-    for (let i = 0; i < gridSize; i++){
+    for (let i = 0; i < oldGridSize; i++){
         const divContainers = document.querySelector(".divContainer" + i);
         divContainers.remove();
     }
@@ -116,8 +113,19 @@ function removeGrid(){
 }
 
 changeGrid.addEventListener("click", function(e){
-    removeGrid();
+    oldGridSize = gridSize;
+    let askSize = prompt("How many squares would you like per side?", 16)
+    if(askSize <= 100){
+        gridSize = askSize;
+        removeGrid();
+        createDivs();
+        addDrawEvents();
+    }else if(askSize > 100){
+        alert("choose something below 100 squares.");
+    }
 });
+
+
 
 
 
