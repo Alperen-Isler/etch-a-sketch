@@ -7,9 +7,9 @@ const mintGreen = document.querySelector(".mint-green");
 const deepNavy = document.querySelector(".deep-navy");
 const softOrange = document.querySelector(".soft-orange");
 const lavenderPurple = document.querySelector(".lavender-purple");
+const changeGrid = document.querySelector("#changeGrid");
 
-createDivs();
-
+let gridSize = 16;
 let color;
 const colors = [
     "cherry-red",
@@ -63,17 +63,19 @@ lavenderPurple.addEventListener("click", function(e){
 });
 
 function createDivs (){
-    for (let i = 0; i < 16; i++){
+    for (let i = 0; i < gridSize; i++){
         const divContainer = document.createElement("div");
         divContainer.classList.add("divContainer" + i);
         container.appendChild(divContainer);
-        for (let l = 0; l < 16; l++){
+        for (let l = 0; l < gridSize; l++){
             const div = document.createElement("div");
             div.classList.add("drawDiv");
             divContainer.appendChild(div);
         }        
     }
 }
+
+createDivs();
 
 let drawDivs = document.querySelectorAll(".drawDiv");
 let allowDraw = false;
@@ -101,5 +103,22 @@ drawDivs.forEach(drawDiv => {
         });
     
 });
+
+function removeGrid(){
+    const div = document.querySelectorAll(".drawDiv");
+    for (let i = 0; i < gridSize; i++){
+        const divContainers = document.querySelector(".divContainer" + i);
+        divContainers.remove();
+    }
+    div.forEach(div => {
+        div.remove()
+    });
+}
+
+changeGrid.addEventListener("click", function(e){
+    removeGrid();
+});
+
+
 
 
