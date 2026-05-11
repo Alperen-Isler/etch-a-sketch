@@ -11,7 +11,16 @@ const lavenderPurple = document.querySelector(".lavender-purple");
 createDivs();
 
 let color;
-let draw;
+const colors = [
+    "cherry-red",
+    "cream-white",
+    "sky-blue",
+    "mustard-yellow",
+    "mint-green",
+    "deep-navy",
+    "soft-orange",
+    "lavender-purple"
+];
 
 cherryRed.addEventListener("click", function(e){
     color = "cherry-red";
@@ -86,6 +95,7 @@ drawDivs.forEach(drawDiv => {
     });
         drawDiv.addEventListener("mouseover", function(e){
             if(allowDraw === true){
+                drawDiv.classList.remove(...colors);
                 drawDiv.classList.add(color);
             }
         });
