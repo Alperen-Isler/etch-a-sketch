@@ -11,11 +11,12 @@ const changeGrid = document.querySelector("#changeGrid");
 
 let gridSize = 16;
 let oldGridSize;
-let color;
+let color = "grey";
 let drawDivs;
 let allowDraw;
 
 const colors = [
+    "grey",
     "cherry-red",
     "cream-white",
     "sky-blue",
@@ -67,6 +68,8 @@ lavenderPurple.addEventListener("click", function(e){
 });
 
 function createDivs (){
+    let height = 640 / gridSize;
+    let width = 640 / gridSize;
     for (let i = 0; i < gridSize; i++){
         const divContainer = document.createElement("div");
         divContainer.classList.add("divContainer" + i);
@@ -74,20 +77,26 @@ function createDivs (){
         for (let l = 0; l < gridSize; l++){
             const div = document.createElement("div");
             div.classList.add("drawDiv");
+            div.style.width = height + "px";
+            div.style.height = width + "px";
+            div.classList.add("grey");
             divContainer.appendChild(div);
         }        
     }
     drawDivs = document.querySelectorAll(".drawDiv");
     allowDraw = false;
+    addDrawEvents();
+}
+
+function drawRequirement(){
+    allowDraw = !allowDraw;
+    console.log(allowDraw);
 }
 
 function addDrawEvents() {
     drawDivs.forEach(drawDiv => {
 
-        drawDiv.addEventListener("click", function () {
-            allowDraw = !allowDraw;
-            console.log(allowDraw);
-        });
+        drawDiv.addEventListener("click", drawRequirement);
 
         drawDiv.addEventListener("mouseover", function () {
             if (allowDraw === true) {
@@ -108,7 +117,8 @@ function removeGrid(){
         divContainers.remove();
     }
     div.forEach(div => {
-        div.remove()
+        div.removeEventListener("click", drawRequirement);
+        div.remove();
     });
 }
 
