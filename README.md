@@ -1,14 +1,14 @@
-# Etch-a-Sketch 🎨
+# Etch-a-Sketch
 
 A browser-based Etch-a-Sketch application built with HTML, CSS, and JavaScript as part of The Odin Project.
 
 This project focuses on DOM manipulation by creating a dynamic drawing grid that allows users to draw by hovering over squares.
 
-## 🚀 Live Demo
+## Live Demo
 
-👉 https://alperen-isler.github.io/etch-a-sketch/
+https://alperen-isler.github.io/etch-a-sketch/ (click to draw, click again to stop drawing)
 
-## 📚 What I Learned
+## What I Learned
 
 Through this project, I practiced:
 
@@ -20,39 +20,19 @@ Through this project, I practiced:
 - Managing user input
 - Improving UI interactions
 
-## 🛠️ Technologies Used
+## Technologies Used
 
-- HTML5
-- CSS3
-- JavaScript (Vanilla JS)
+- HTML
+- CSS
+- JavaScript
 
-## 🎮 Features
+## Features
 
-- Dynamic grid generation
+- Dynamic grid generation by users choice
 - Hover drawing effect
-- Adjustable grid size
-- Clear/reset grid functionality
+- Multiple color choices
 - Interactive user experience
 
-## 📂 Project Structure
-
-project-folder/
-│── index.html
-│── style.css
-└── script.js
-
-## 💡 Challenges
-
-Some challenges I worked through during this project included:
-
-- Dynamically generating large grids
-- Managing performance with many DOM elements
-- Handling user input for grid resizing
-
-## 📖 Assignment
-
-This project is part of the JavaScript curriculum from The Odin Project.
-
-## ✨ Author
+## Author
 
 Created by Alperen Isler
